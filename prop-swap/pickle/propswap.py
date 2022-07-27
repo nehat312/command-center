@@ -10,9 +10,12 @@ import seaborn as sns
 
 pd.set_option('display.max_colwidth', 200)
 
+## DATA IMPORTS
+INVESTORS_PATH = '/Users/nehat312/GitHub/command-center/prop-swap/data/investors.xlsx'
+# MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
+
+
 ## VARIABLE ASSIGNMENT
-MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
-INVESTORS_PATH = "/Users/nehat312/dsir-426/assignments/projects/capstone/data/investors.xlsx"
 all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name = 'PROPSWAP', header = 0)
 all_investor_idx = all_investor_idx.sort_values(by = 'TTL VOL RANK')
 
@@ -39,7 +42,11 @@ prop_params_header = st.subheader('PROPERTY PARAMETERS:')
 
 sector = st.selectbox(
     '*PROPERTY TYPE:',
-    ("MULTIFAMILY", "STRIP CENTER", "NNN RETAIL", "MALL", "SELF-STORAGE", "INDUSTRIAL", "FULL-SERVICE HOTEL", "LIMITED-SERVICE HOTEL", "CBD OFFICE", "SUBURBAN OFFICE"))
+    ("MULTIFAMILY",
+     "STRIP CENTER", "NNN RETAIL", "MALL",
+     "SELF-STORAGE",
+     "INDUSTRIAL",
+     "FULL-SERVICE HOTEL", "LIMITED-SERVICE HOTEL", "CBD OFFICE", "SUBURBAN OFFICE"))
 
 with st.form("PROPERTY PARAMETERS"):
     if sector == "MULTIFAMILY":
