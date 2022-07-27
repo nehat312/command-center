@@ -32,7 +32,7 @@ pd.set_option('display.max_colwidth', 200)
 # INVESTORS_PATH = 'https://github.com/nehat312/command-center/blob/27db1b6940e31235d4f9f3d71712b4ed333a0a88/prop-swap/data/investors.xlsx'
 # INVESTORS_PATH = '//GitHub/command-center/prop-swap/data/investors.xlsx'
 # INVESTORS_PATH = "https://github.com/nehat312/command-center/blob/main/prop-swap/data/investors.xlsx"
-INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/investors.xlsx"
+INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/engine.xlsx"
 
 # MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
 
@@ -40,7 +40,6 @@ INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/investor
 all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
 # print(all_investor_idx)
-
 
 st.container()
 left_column, right_column = st.columns(2)
