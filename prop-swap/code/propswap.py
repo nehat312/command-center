@@ -8,22 +8,22 @@ import time
 # from matplotlib import pyplot as plt
 # import seaborn as sns
 
-import dash as dash
-from dash import dash_table
-from dash import dcc
-from dash import html
-from dash.dependencies import Input, Output
-from dash.exceptions import PreventUpdate
-import dash_bootstrap_components as dbc
-
+# import dash as dash
+# from dash import dash_table
+# from dash import dcc
+# from dash import html
+# from dash.dependencies import Input, Output
+# from dash.exceptions import PreventUpdate
+# import dash_bootstrap_components as dbc
+#
 import plotly as ply
 import plotly.express as px
-
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-
-import scipy.stats as stats
-import statistics
+#
+# from plotly.subplots import make_subplots
+# import plotly.graph_objects as go
+#
+# import scipy.stats as stats
+# import statistics
 
 pd.set_option('display.max_colwidth', 200)
 
