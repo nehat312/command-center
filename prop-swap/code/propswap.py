@@ -34,22 +34,26 @@ pd.set_option('display.max_colwidth', 200)
 # INVESTORS_PATH = "https://github.com/nehat312/command-center/blob/main/prop-swap/data/investors.xlsx"
 # INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/engine.xlsx"
 
-#INVESTORS_CSV = '/Users/nehat312/GitHub/command-center/prop-swap/data/engine.csv'
 
-INVESTORS_CSV = r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
-                #'https://github.com/nehat312/command-center/blob/ed5722d31ae7664d2845507c9336b7bdc7795d00/prop-swap/data/engine.csv'
-#r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
+
+#INVESTORS_CSV = r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
+
+INVESTORS_CSV = '/Users/nehat312/GitHub/command-center/prop-swap/data/engine.csv'
+    #'https://github.com/nehat312/command-center/blob/ed5722d31ae7664d2845507c9336b7bdc7795d00/prop-swap/data/engine.csv'
+    #r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
 
 
 # MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
 
 ## VARIABLE ASSIGNMENT
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
-all_investor_idx = pd.read_csv(INVESTORS_CSV) #, header=0, index_col=0 #, encoding='utf-8'
+all_investor_idx = pd.read_csv(INVESTORS_CSV, index_col=0) #, header=0, index_col=0 #, encoding='utf-8'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
 # print(all_investor_idx)
 
 
+
+###################
 
 ## STREAMLIT APP ##
 st.container()
