@@ -16,8 +16,8 @@ import time
 # from dash.exceptions import PreventUpdate
 # import dash_bootstrap_components as dbc
 #
-import plotly as ply
-import plotly.express as px
+# import plotly as ply
+# import plotly.express as px
 #
 # from plotly.subplots import make_subplots
 # import plotly.graph_objects as go
