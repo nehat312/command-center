@@ -38,7 +38,7 @@ INVESTORS_PATH = 'https://github.com/nehat312/command-center/blob/main/prop-swap
 
 ## VARIABLE ASSIGNMENT
 all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0)
-all_investor_idx = all_investor_idx.sort_values(by = 'TTL VOL RANK')
+all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
 
 st.container()
 left_column, right_column = st.columns(2)
