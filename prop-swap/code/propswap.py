@@ -146,9 +146,9 @@ with st.form("PROPERTY PARAMETERS"):
     def filter_buyers(sector, prop_size, min_prop_price, prop_qual):
       if sector == 'MULTIFAMILY':
         for investors in all_investor_idx:
-          mf_size_filter = all_investor_idx[all_investor_idx['MF UNITS / PROP'] >= int(prop_size)]
-          mf_min_price_filter = mf_size_filter[mf_size_filter['MF AVG PRICE ($M)'] >= int(min_prop_price)]
-          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter['MF QUALITY'] >= int((prop_qual-1))) & (mf_min_price_filter['MF QUALITY'] <= int((prop_qual+1)))]
+          mf_size_filter = all_investor_idx[all_investor_idx['MF UNITS / PROP'] > int(prop_size)]
+          mf_min_price_filter = mf_size_filter[mf_size_filter['MF AVG PRICE ($M)'] > int(min_prop_price)]
+          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter['MF QUALITY'] > int((prop_qual-1))) & (mf_min_price_filter['MF QUALITY'] < int((prop_qual+1)))]
           mf_buyer_recs = mf_qual_filter.sort_values(by = 'MF VOL RANK', ascending = True)[:50]
           mf_buyer_recs = pd.DataFrame(data = mf_buyer_recs, columns = mf_cols)
         return mf_buyer_recs
