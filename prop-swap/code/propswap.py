@@ -29,7 +29,8 @@ pd.set_option('display.max_colwidth', 200)
 
 
 ## DATA IMPORTS
-INVESTORS_PATH = '/Users/nehat312/GitHub/command-center/prop-swap/data/investors.xlsx'
+# INVESTORS_PATH = '/Users/nehat312/GitHub/command-center/prop-swap/data/investors.xlsx'
+INVESTORS_PATH = '/prop-swap/data/investors.xlsx'
 # MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
 #
 
