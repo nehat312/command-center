@@ -66,9 +66,9 @@ sector = st.selectbox(
     '*PROPERTY TYPE:',
     ("MULTIFAMILY",
      "STRIP CENTER", "NNN RETAIL", "MALL",
-     "SELF-STORAGE",
-     "INDUSTRIAL",
-     "FULL-SERVICE HOTEL", "LIMITED-SERVICE HOTEL", "CBD OFFICE", "SUBURBAN OFFICE"))
+     "SELF-STORAGE", "INDUSTRIAL",
+     "FULL-SERVICE HOTEL", "LIMITED-SERVICE HOTEL",
+     "CBD OFFICE", "SUBURBAN OFFICE"))
 
 with st.form("PROPERTY PARAMETERS"):
     if sector == "MULTIFAMILY":
@@ -100,9 +100,8 @@ with st.form("PROPERTY PARAMETERS"):
 
     #sector = st.selectbox('*PROPERTY REGION:', ("NORTHEAST", "MID-ATLANTIC", "SOUTHEAST", "WEST", "NORTHWEST", "MIDWEST", "SOUTHWEST"))
 
-    prop_qual = st.selectbox(
-    '*PROPERTY QUALITY [1-5]:',
-    list(range(1,6,1)))
+    prop_qual = st.selectbox('*PROPERTY QUALITY [1-5]:',
+                             list(range(1,6,1)))
 
     if min_prop_price == 0:
         st.write('')
