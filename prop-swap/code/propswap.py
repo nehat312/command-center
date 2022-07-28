@@ -47,14 +47,13 @@ engine_data = r"https://raw.githubusercontent.com/nehat312/command-center/main/p
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
 all_investor_idx = pd.read_csv(engine_data, index_col=0) #, header=0, index_col=0 #, encoding='utf-8'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
-print(all_investor_idx.info())
+# print(all_investor_idx.info())
 
-#%%
+# #%%
 
-a = all_investor_idx[all_investor_idx.MF_UNITS_PROP >= 0]
-print(a)
+# a = all_investor_idx[all_investor_idx.MF_UNITS_PROP >= 0]
+# print(a)
 
-#%%
 
 
 ###################
@@ -134,7 +133,7 @@ with st.form("PROPERTY PARAMETERS"):
 ### PICKLE PICKLE PICKLE ###
 
     investor_cols = ['INVESTOR', 'INVESTOR TYPE', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'C-SUITE']
-    mf_cols = ['INVESTOR', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MF VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
+    mf_cols = ['INVESTOR', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR_TYPE']
     sc_cols = ['INVESTOR', 'SC_AVG_PRICE_MM', 'SC SF / PROP', 'SC AVG PSF',  'AVG QUALITY', 'SC QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'SC VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
     nnn_cols = ['INVESTOR', 'NNN_AVG_PRICE_MM', 'NNN SF / PROP', 'NNN AVG PSF',  'AVG QUALITY', 'NNN QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'NNN VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
     mall_cols = ['INVESTOR', 'MALL_AVG_PRICE_MM', 'MALL SF / PROP', 'MALL AVG PSF',  'AVG QUALITY', 'MALL QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MALL VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
@@ -236,7 +235,7 @@ with st.form("PROPERTY PARAMETERS"):
         st.dataframe(buyer_rec_df)
 
         if sector == 'MULTIFAMILY':
-            per_unit_valuation = round(buyer_rec_df['MF AVG PPU'].mean())
+            per_unit_valuation = round(buyer_rec_df['MF_AVG_PPU'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
