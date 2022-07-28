@@ -231,7 +231,8 @@ with st.form("PROPERTY PARAMETERS"):
     if params_submit:
         st.write("RECOMMENDED INVESTOR POOL:")
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
-        buyer_rec_df.set_index('INVESTOR', inplace = True)
+        # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
+        # buyer_rec_df.set_index('INVESTOR', inplace = True)
         st.dataframe(buyer_rec_df)
 
         if sector == 'MULTIFAMILY':
