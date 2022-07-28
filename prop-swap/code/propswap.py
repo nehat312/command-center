@@ -47,7 +47,6 @@ engine_data = r"https://raw.githubusercontent.com/nehat312/command-center/main/p
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
 all_investor_idx = pd.read_csv(engine_data, index_col=0) #, header=0, index_col=0 #, encoding='utf-8'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
-pd.to_numeric(all_investor_idx.MF_UNITS_PROP)
 print(all_investor_idx.info())
 
 #%%
