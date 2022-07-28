@@ -47,9 +47,9 @@ engine_data = r"https://raw.githubusercontent.com/nehat312/command-center/main/p
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
 all_investor_idx = pd.read_csv(engine_data, index_col=0) #, header=0, index_col=0 #, encoding='utf-8'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
-# print(all_investor_idx)
+print(all_investor_idx.info())
 
-# #%%
+#%%
 
 
 
@@ -115,7 +115,7 @@ with st.form("PROPERTY PARAMETERS"):
     min_prop_price = st.slider('*MINIMUM SALE PRICE [$0MM-$100MM]:', min_value = 0, max_value = 100, step = 5)
         #min_prop_price = st.selectbox('*MINIMUM PRICE [$0MM-$100MM]:', (list(range(0,105,5))))
 
-    #sector = st.selectbox('*PROPERTY REGION:', ("NORTHEAST", "MID-ATLANTIC", "SOUTHEAST", "WEST", "NORTHWEST", "MIDWEST", "SOUTHWEST"))
+    # property_region = st.selectbox('*PROPERTY REGION:', ("NORTHEAST", "MID-ATLANTIC", "SOUTHEAST", "WEST", "NORTHWEST", "MIDWEST", "SOUTHWEST"))
 
     prop_qual = st.selectbox('*PROPERTY QUALITY [1-5]:',
                              list(range(1,6,1)))
@@ -146,9 +146,9 @@ with st.form("PROPERTY PARAMETERS"):
     def filter_buyers(sector, prop_size, min_prop_price, prop_qual):
       if sector == 'MULTIFAMILY':
         for investors in all_investor_idx:
-          mf_size_filter = all_investor_idx[all_investor_idx.MF_UNITS_PROP > prop_size]
-          mf_min_price_filter = mf_size_filter[mf_size_filter.MF_AVG_PRICE_MM > min_prop_price]
-          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter.MF_QUALITY > (prop_qual-1)) & (mf_min_price_filter['MF QUALITY'] < (prop_qual+1))]
+          mf_size_filter = all_investor_idx[all_investor_idx.MF_UNITS_PROP > int(prop_size)]
+          mf_min_price_filter = mf_size_filter[mf_size_filter.MF_AVG_PRICE_MM > int(min_prop_price)]
+          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter.MF_QUALITY > int((prop_qual-1))) & int((mf_min_price_filter['MF QUALITY'] < (prop_qual+1)))]
           mf_buyer_recs = mf_qual_filter.sort_values(by = 'MF_VOL_RANK', ascending = True)[:50]
           mf_buyer_recs = pd.DataFrame(data = mf_buyer_recs, columns = mf_cols)
         return mf_buyer_recs
