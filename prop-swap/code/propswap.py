@@ -51,7 +51,9 @@ print(all_investor_idx.info())
 
 #%%
 
+print(all_investor_idx.MF_UNITS_PROP)
 
+#%%
 
 
 ###################
@@ -131,10 +133,10 @@ with st.form("PROPERTY PARAMETERS"):
 ### PICKLE PICKLE PICKLE ###
 
     investor_cols = ['INVESTOR', 'INVESTOR TYPE', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'C-SUITE']
-    mf_cols = ['INVESTOR', 'MF AVG PRICE ($M)', 'MF UNITS / PROP', 'MF AVG PPU',  'AVG QUALITY', 'MF QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MF VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
-    sc_cols = ['INVESTOR', 'SC AVG PRICE ($M)', 'SC SF / PROP', 'SC AVG PSF',  'AVG QUALITY', 'SC QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'SC VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
-    nnn_cols = ['INVESTOR', 'NNN AVG PRICE ($M)', 'NNN SF / PROP', 'NNN AVG PSF',  'AVG QUALITY', 'NNN QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'NNN VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
-    mall_cols = ['INVESTOR', 'MALL AVG PRICE ($M)', 'MALL SF / PROP', 'MALL AVG PSF',  'AVG QUALITY', 'MALL QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MALL VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
+    mf_cols = ['INVESTOR', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MF VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
+    sc_cols = ['INVESTOR', 'SC_AVG_PRICE_MM', 'SC SF / PROP', 'SC AVG PSF',  'AVG QUALITY', 'SC QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'SC VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
+    nnn_cols = ['INVESTOR', 'NNN_AVG_PRICE_MM', 'NNN SF / PROP', 'NNN AVG PSF',  'AVG QUALITY', 'NNN QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'NNN VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
+    mall_cols = ['INVESTOR', 'MALL_AVG_PRICE_MM', 'MALL SF / PROP', 'MALL AVG PSF',  'AVG QUALITY', 'MALL QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'MALL VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
     ss_cols = ['INVESTOR', 'SS AVG PRICE ($M)', 'SS SF / PROP',  'SS AVG PSF',  'AVG QUALITY', 'SS QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'SS VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
     ind_cols = ['INVESTOR', 'IND AVG PRICE ($M)', 'IND SF / PROP', 'IND AVG PSF',  'AVG QUALITY', 'IND QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'IND VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
     fs_cols = ['INVESTOR', 'FS AVG PRICE ($M)', 'FS KEYS / PROP', 'FS AVG PPK',  'AVG QUALITY', 'FS QUALITY', 'TTL VOL RANK', 'TTL SF RANK', 'FS VOL RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'INVESTOR TYPE']
@@ -146,9 +148,9 @@ with st.form("PROPERTY PARAMETERS"):
     def filter_buyers(sector, prop_size, min_prop_price, prop_qual):
       if sector == 'MULTIFAMILY':
         for investors in all_investor_idx:
-          mf_size_filter = all_investor_idx[all_investor_idx.MF_UNITS_PROP > int(prop_size)]
-          mf_min_price_filter = mf_size_filter[mf_size_filter.MF_AVG_PRICE_MM > int(min_prop_price)]
-          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter.MF_QUALITY > int((prop_qual-1))) & int((mf_min_price_filter['MF QUALITY'] < (prop_qual+1)))]
+          mf_size_filter = all_investor_idx[all_investor_idx.MF_UNITS_PROP >= int(prop_size)]
+          mf_min_price_filter = mf_size_filter[mf_size_filter.MF_AVG_PRICE_MM >= int(min_prop_price)]
+          mf_qual_filter = mf_min_price_filter[(mf_min_price_filter.MF_QUALITY >= int((prop_qual-1))) & (mf_min_price_filter.MF_QUALITY <= int((prop_qual+1)))]
           mf_buyer_recs = mf_qual_filter.sort_values(by = 'MF_VOL_RANK', ascending = True)[:50]
           mf_buyer_recs = pd.DataFrame(data = mf_buyer_recs, columns = mf_cols)
         return mf_buyer_recs
