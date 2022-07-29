@@ -40,13 +40,14 @@ pd.set_option('display.max_colwidth', 200)
 
 
 # MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
-
+engine_xlsx = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
+engine_xlsb = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
 engine_data = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
 
 
 ## VARIABLE ASSIGNMENT
-#all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
-all_investor_idx = pd.read_csv(engine_data) #, header=0, index_col=0 #, encoding='utf-8'
+all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
+#all_investor_idx = pd.read_csv(engine_data) #, header=0, index_col=0 #, encoding='utf-8'
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
 # print(all_investor_idx.info())
 
