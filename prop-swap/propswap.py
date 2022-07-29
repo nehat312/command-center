@@ -1,9 +1,10 @@
-## LIBRARY IMPORTS
+## LIBRARY IMPORTS ##
 import streamlit as st
-import pickle
 import pandas as pd
+
 import numpy as np
 import time
+import pickle
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -16,9 +17,9 @@ import seaborn as sns
 # from dash.exceptions import PreventUpdate
 # import dash_bootstrap_components as dbc
 
-
-import plotly as ply
-import plotly.express as px
+#
+# import plotly as ply
+# import plotly.express as px
 #
 # from plotly.subplots import make_subplots
 # import plotly.graph_objects as go
@@ -26,9 +27,12 @@ import plotly.express as px
 # import scipy.stats as stats
 # import statistics
 
+## VISUAL SETTINGS ##
+
 pd.set_option('display.max_colwidth', 200)
 
-## DATA IMPORTS"
+
+## DATA IMPORTS ##
 
 engine_csv = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
 engine_xlsx = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
