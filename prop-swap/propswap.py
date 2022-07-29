@@ -238,17 +238,18 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED PROPERTY VALUE / UNIT:")
             st.write(per_unit_valuation)
-            st.write('INVESTOR POOL VALUATION RANGE:')
-            mf_chart_1 = px.scatter(all_investor_idx,
-                                  x=all_investor_idx['MF_AVG_PRICE_MM'],
-                                  y=all_investor_idx['MF_AVG_PPU'],
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            mf_chart_1 = px.scatter(buyer_rec_df, #all_investor_idx
+                                  x=buyer_rec_df['MF_AVG_PRICE_MM'],
+                                  y=buyer_rec_df['MF_AVG_PPU'],
                                   # hover_data=all_investor_idx['INVESTOR'],
-                                  color=all_investor_idx['INVESTOR_TYPE'],
+                                  color=buyer_rec_df['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
 
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             mf_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
                                 x=buyer_rec_df['MF_AVG_PPU'],
-                                color=all_investor_idx['INVESTOR_TYPE'],
+                                color=buyer_rec_df['INVESTOR_TYPE'],
                                 color_continuous_scale='Tropic')
 
             st.plotly_chart(mf_chart_1)
