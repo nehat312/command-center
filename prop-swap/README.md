@@ -1,7 +1,7 @@
-# PROP/SWAP - CAPSTONE PROJECT
+# PROP/SWAP
 
 
-## PROBLEM STATEMENT / BACKGROUND
+## COMMERCIAL REAL ESTATE OVERVIEW
 
 * From the perspective of public and private investors, **Real Estate** is typically segmented across **Residential** and **Commercial** verticals.
 * Unique sectors within each vertical are valued distinctly from one another. 
