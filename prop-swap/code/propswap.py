@@ -15,9 +15,9 @@ import time
 # from dash.dependencies import Input, Output
 # from dash.exceptions import PreventUpdate
 # import dash_bootstrap_components as dbc
-#
-# import plotly as ply
-# import plotly.express as px
+
+import plotly as ply
+import plotly.express as px
 #
 # from plotly.subplots import make_subplots
 # import plotly.graph_objects as go
@@ -226,7 +226,8 @@ with st.form("PROPERTY PARAMETERS"):
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
         # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
         # buyer_rec_df.set_index('INVESTOR', inplace = True)
-        st.dataframe(buyer_rec_df.style.render)
+
+        st.dataframe(buyer_rec_df)
         # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
 
         if sector == 'MULTIFAMILY':
@@ -236,6 +237,14 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED PROPERTY VALUE / UNIT:")
             st.write(per_unit_valuation)
+            st.write('INVESTOR POOL VALUATION RANGE:')
+            mf_chart = px.scatter(all_investor_idx,
+                                  x=all_investor_idx['MF_AVG_PRICE_MM'],
+                                  y=all_investor_idx['MF_AVG_PPU'],
+                                  hover_data=all_investor_idx['INVESTOR'],
+                                  color=all_investor_idx['INVESTOR_TYPE'],
+                                  color_continuous_scale='Tropic')
+            st.plotly_chart(mf_chart)
             # plt.figure(figsize = (30, 20))
             # fig, ax = plt.subplots()
             # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['MF AVG PPU'], palette = 'mako', ci = None, orient = 'h')
@@ -379,7 +388,14 @@ with st.form("PROPERTY PARAMETERS"):
             # st.pyplot(fig)
 
 
+
+
 # st.plotly_chart(figure_or_data, use_container_width=False, sharing="streamlit", **kwargs)
+
+# efg_win = px.scatter(rollup_df, x=rollup_df['EFG%'], y=rollup_df['WIN%'], hover_data=['TEAM'], color=rollup_df['CONF'], color_continuous_scale='Tropic')
+
+
+# style={'textAlign': 'Center', 'border': '4px solid black', 'font-family': 'Arial'}
 
 ### EXPLAIN QUALITY SCALE ###
 
