@@ -226,7 +226,7 @@ with st.form("PROPERTY PARAMETERS"):
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
         # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
         # buyer_rec_df.set_index('INVESTOR', inplace = True)
-        st.dataframe(buyer_rec_df.style.background_gradient('#07efdb'))
+        st.dataframe(buyer_rec_df.style.render)
         # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
 
         if sector == 'MULTIFAMILY':
