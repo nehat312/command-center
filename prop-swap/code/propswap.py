@@ -34,14 +34,15 @@ pd.set_option('display.max_colwidth', 200)
 # INVESTORS_PATH = "https://github.com/nehat312/command-center/blob/main/prop-swap/data/investors.xlsx"
 # INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/engine.xlsx"
 
-engine_data = r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
-
 # INVESTORS_CSV = '/Users/nehat312/GitHub/command-center/prop-swap/data/engine.csv'
     #'https://github.com/nehat312/command-center/blob/ed5722d31ae7664d2845507c9336b7bdc7795d00/prop-swap/data/engine.csv'
     #r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
 
 
 # MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
+
+engine_data = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
+
 
 ## VARIABLE ASSIGNMENT
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
