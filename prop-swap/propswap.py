@@ -274,14 +274,14 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(per_unit_valuation)
 
             sc_chart_1 = px.scatter(buyer_rec_df,  # all_investor_idx
-                                    x=buyer_rec_df['MF_AVG_PRICE_MM'],
-                                    y=buyer_rec_df['MF_AVG_PPU'],
+                                    x=buyer_rec_df['SC_AVG_PRICE_MM'],
+                                    y=buyer_rec_df['SC_AVG_PPU'],
                                     # hover_data=all_investor_idx['INVESTOR'],
                                     color=buyer_rec_df['INVESTOR_TYPE'],
                                     color_continuous_scale='Tropic')
 
             sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
-                                x=buyer_rec_df['MF_AVG_PPU'],
+                                x=buyer_rec_df['SC_AVG_PPU'],
                                 color=buyer_rec_df['INVESTOR_TYPE'],
                                 color_continuous_scale='Tropic')
 
