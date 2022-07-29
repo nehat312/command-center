@@ -226,7 +226,8 @@ with st.form("PROPERTY PARAMETERS"):
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
         # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
         # buyer_rec_df.set_index('INVESTOR', inplace = True)
-        st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
+        st.dataframe(buyer_rec_df)
+        # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
 
         if sector == 'MULTIFAMILY':
             per_unit_valuation = round(buyer_rec_df['MF_AVG_PPU'].mean())
