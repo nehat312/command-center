@@ -1,13 +1,15 @@
 ## LIBRARY IMPORTS ##
 import streamlit as st
 import pandas as pd
-
 import numpy as np
-import time
-import pickle
 
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+import plotly as ply
+import plotly.express as px
+# from plotly.subplots import make_subplots
+# import plotly.graph_objects as go
 
 # import dash as dash
 # from dash import dash_table
@@ -17,15 +19,11 @@ import seaborn as sns
 # from dash.exceptions import PreventUpdate
 # import dash_bootstrap_components as dbc
 
-#
-# import plotly as ply
-# import plotly.express as px
-#
-# from plotly.subplots import make_subplots
-# import plotly.graph_objects as go
-#
 # import scipy.stats as stats
 # import statistics
+# import time
+# import pickle
+
 
 ## VISUAL SETTINGS ##
 
