@@ -27,32 +27,18 @@ import time
 
 pd.set_option('display.max_colwidth', 200)
 
-## DATA IMPORTS
+## DATA IMPORTS"
 
-# INVESTORS_PATH = 'https://github.com/nehat312/command-center/blob/27db1b6940e31235d4f9f3d71712b4ed333a0a88/prop-swap/data/investors.xlsx'
-# INVESTORS_PATH = '//GitHub/command-center/prop-swap/data/investors.xlsx'
-# INVESTORS_PATH = "https://github.com/nehat312/command-center/blob/main/prop-swap/data/investors.xlsx"
-# INVESTORS_PATH = r"/Users/nehat312/GitHub/command-center/prop-swap/data/engine.xlsx"
-
-# INVESTORS_CSV = '/Users/nehat312/GitHub/command-center/prop-swap/data/engine.csv'
-    #'https://github.com/nehat312/command-center/blob/ed5722d31ae7664d2845507c9336b7bdc7795d00/prop-swap/data/engine.csv'
-    #r"https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv"
-
-
-# MODEL_PATH = r"/Users/nehat312/dsir-426/assignments/projects/capstone/pickle/pickle.pkl"
+engine_csv = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
 engine_xlsx = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
-engine_xlsb = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
-engine_data = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
-
 
 ## VARIABLE ASSIGNMENT
-all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
-#all_investor_idx = pd.read_csv(engine_data) #, header=0, index_col=0 #, encoding='utf-8'
+
+all_investor_idx = pd.read_csv(engine_csv) #, header=0, index_col=0 #, encoding='utf-8'
+#all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
+
 all_investor_idx = all_investor_idx.sort_values(by='TTL VOL RANK')
 # print(all_investor_idx.info())
-
-# a = all_investor_idx[all_investor_idx.MF_UNITS_PROP >= 0]
-# print(a)
 
 
 # #%%
