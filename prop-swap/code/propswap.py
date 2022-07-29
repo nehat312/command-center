@@ -39,15 +39,16 @@ all_investor_idx = pd.read_csv(engine_csv) #, header=0, index_col=0 #, encoding=
 
 all_investor_idx = all_investor_idx.sort_values(by='TTL_VOL_RANK')
 
+#%%
 mf_num_cols = ['MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK',]
 
 for i in mf_num_cols:
     pd.to_numeric(all_investor_idx[i])
 
-# print(all_investor_idx.info())
+print(all_investor_idx.info())
 
 
-# #%%
+#%%
 ###################
 
 ## STREAMLIT APP ##
