@@ -238,7 +238,7 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED PROPERTY VALUE / UNIT:")
             st.write(per_unit_valuation)
-            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+
             mf_chart_1 = px.scatter(buyer_rec_df, #all_investor_idx
                                   x=buyer_rec_df['MF_AVG_PRICE_MM'],
                                   y=buyer_rec_df['MF_AVG_PPU'],
@@ -246,13 +246,14 @@ with st.form("PROPERTY PARAMETERS"):
                                   color=buyer_rec_df['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
 
-            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             mf_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
                                 x=buyer_rec_df['MF_AVG_PPU'],
                                 color=buyer_rec_df['INVESTOR_TYPE'],
                                 color_continuous_scale='Tropic')
 
-            st.plotly_chart(mf_chart_1)
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            st.plotly_chart(mf_chart_1, use_container_width=False, sharing="streamlit")
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             st.plotly_chart(mf_chart_2)
 
 
@@ -265,21 +266,33 @@ with st.form("PROPERTY PARAMETERS"):
             # st.pyplot(fig)
 
         elif sector == 'STRIP CENTER':
-            per_unit_valuation = round(buyer_rec_df['SC AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['SC_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['SC AVG PSF'], palette = 'mako', ci = None, orient = 'h')
-            # plt.xlabel('AVG STRIP CENTER VALUE PSF', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+            sc_chart_1 = px.scatter(buyer_rec_df,  # all_investor_idx
+                                    x=buyer_rec_df['MF_AVG_PRICE_MM'],
+                                    y=buyer_rec_df['MF_AVG_PPU'],
+                                    # hover_data=all_investor_idx['INVESTOR'],
+                                    color=buyer_rec_df['INVESTOR_TYPE'],
+                                    color_continuous_scale='Tropic')
+
+            sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
+                                x=buyer_rec_df['MF_AVG_PPU'],
+                                color=buyer_rec_df['INVESTOR_TYPE'],
+                                color_continuous_scale='Tropic')
+
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            st.plotly_chart(sc_chart_1, use_container_width=False, sharing="streamlit")
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            st.plotly_chart(sc_chart_2)
+
+
         elif sector == 'NNN RETAIL':
-            per_unit_valuation = round(buyer_rec_df['NNN AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['NNN_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -294,7 +307,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'MALL':
-            per_unit_valuation = round(buyer_rec_df['MALL AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['MALL_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -309,7 +322,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'SELF-STORAGE':
-            per_unit_valuation = round(buyer_rec_df['SS AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['SS_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -324,7 +337,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'INDUSTRIAL':
-            per_unit_valuation = round(buyer_rec_df['IND AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['IND_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -339,7 +352,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'FULL-SERVICE HOTEL':
-            per_unit_valuation = round(buyer_rec_df['FS AVG PPK'].mean())
+            per_unit_valuation = round(buyer_rec_df['FS_AVG_PPK'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -354,7 +367,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'LIMITED-SERVICE HOTEL':
-            per_unit_valuation = round(buyer_rec_df['LS AVG PPK'].mean())
+            per_unit_valuation = round(buyer_rec_df['LS_AVG_PPK'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -369,7 +382,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'CBD OFFICE':
-            per_unit_valuation = round(buyer_rec_df['CBD AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['CBD_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
@@ -384,7 +397,7 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
         elif sector == 'SUB OFFICE':
-            per_unit_valuation = round(buyer_rec_df['SUB AVG PSF'].mean())
+            per_unit_valuation = round(buyer_rec_df['SUB_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
             st.write("ESTIMATED PROPERTY VALUE ($MM):")
             st.write(prop_valuation / 1_000_000)
