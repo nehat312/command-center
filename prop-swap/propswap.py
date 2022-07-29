@@ -43,8 +43,20 @@ all_investor_idx = all_investor_idx.sort_values(by='TTL_VOL_RANK')
 
 mf_num_cols = ['MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK',]
 
-for i in mf_num_cols:
-    pd.to_numeric(all_investor_idx[i])
+investor_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'C-SUITE']
+mf_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+sc_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SC_AVG_PRICE_MM', 'SC_SF_PROP', 'SC_AVG_PSF',  'AVG_QUALITY', 'SC_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SC_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+nnn_cols = ['INVESTOR', 'INVESTOR_TYPE', 'NNN_AVG_PRICE_MM', 'NNN_SF_PROP', 'NNN_AVG_PSF',  'AVG_QUALITY', 'NNN_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'NNN_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+mall_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MALL_AVG_PRICE_MM', 'MALL_SF_PROP', 'MALL_AVG_PSF',  'AVG_QUALITY', 'MALL_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MALL_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE ($M)', 'SS_SF_PROP',  'SS_AVG_PSF',  'AVG_QUALITY', 'SS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE ($M)', 'IND_SF_PROP', 'IND_AVG_PSF',  'AVG_QUALITY', 'IND_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE ($M)', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'AVG_QUALITY', 'FS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE ($M)', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'AVG_QUALITY', 'LS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE ($M)', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'AVG_QUALITY', 'CBD_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE ($M)', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'AVG_QUALITY', 'SUB_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+
+# for i in mf_num_cols:
+#     pd.to_numeric(all_investor_idx[i])
 
 # print(all_investor_idx.info())
 
@@ -125,18 +137,6 @@ with st.form("PROPERTY PARAMETERS"):
     params_submit = st.form_submit_button("PROP/SWAP")
 
 ### PICKLE PICKLE PICKLE ###
-
-    investor_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'C-SUITE']
-    mf_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-    sc_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SC_AVG_PRICE_MM', 'SC_SF_PROP', 'SC_AVG_PSF',  'AVG_QUALITY', 'SC_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SC_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    nnn_cols = ['INVESTOR', 'INVESTOR_TYPE', 'NNN_AVG_PRICE_MM', 'NNN_SF_PROP', 'NNN_AVG_PSF',  'AVG_QUALITY', 'NNN_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'NNN_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    mall_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MALL_AVG_PRICE_MM', 'MALL_SF_PROP', 'MALL_AVG_PSF',  'AVG_QUALITY', 'MALL_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MALL_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE',]
-    ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE ($M)', 'SS_SF_PROP',  'SS_AVG_PSF',  'AVG_QUALITY', 'SS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-    ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE ($M)', 'IND_SF_PROP', 'IND_AVG_PSF',  'AVG_QUALITY', 'IND_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE ($M)', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'AVG_QUALITY', 'FS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE ($M)', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'AVG_QUALITY', 'LS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE ($M)', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'AVG_QUALITY', 'CBD_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-    sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE ($M)', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'AVG_QUALITY', 'SUB_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
 
     @st.cache(persist=True, allow_output_mutation=True)
     def filter_buyers(sector, prop_size, min_prop_price, prop_qual):
@@ -275,13 +275,13 @@ with st.form("PROPERTY PARAMETERS"):
 
             sc_chart_1 = px.scatter(buyer_rec_df,  # all_investor_idx
                                     x=buyer_rec_df['SC_AVG_PRICE_MM'],
-                                    y=buyer_rec_df['SC_AVG_PPU'],
+                                    y=buyer_rec_df['SC_AVG_PSF'],
                                     # hover_data=all_investor_idx['INVESTOR'],
                                     color=buyer_rec_df['INVESTOR_TYPE'],
                                     color_continuous_scale='Tropic')
 
             sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
-                                x=buyer_rec_df['SC_AVG_PPU'],
+                                x=buyer_rec_df['SC_AVG_PSF'],
                                 color=buyer_rec_df['INVESTOR_TYPE'],
                                 color_continuous_scale='Tropic')
 
