@@ -248,15 +248,16 @@ with st.form("PROPERTY PARAMETERS"):
                                   color=buyer_rec_df['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
 
-            mf_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
-                                x=buyer_rec_df['MF_AVG_PPU'],
-                                color=buyer_rec_df['INVESTOR_TYPE'],
-                                color_continuous_scale='Tropic')
-
             st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             st.plotly_chart(mf_chart_1, use_container_width=False, sharing="streamlit")
-            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
-            st.plotly_chart(mf_chart_2)
+
+            # mf_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
+            #                     x=buyer_rec_df['MF_AVG_PPU'],
+            #                     color=buyer_rec_df['INVESTOR_TYPE'],
+            #                     color_continuous_scale='Tropic')
+            #
+            # st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            # st.plotly_chart(mf_chart_2)
 
 
             # plt.figure(figsize = (30, 20))
@@ -282,15 +283,16 @@ with st.form("PROPERTY PARAMETERS"):
                                     color=buyer_rec_df['INVESTOR_TYPE'],
                                     color_continuous_scale='Tropic')
 
-            sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
-                                x=buyer_rec_df['SC_AVG_PSF'],
-                                color=buyer_rec_df['INVESTOR_TYPE'],
-                                color_continuous_scale='Tropic')
-
             st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             st.plotly_chart(sc_chart_1, use_container_width=False, sharing="streamlit")
-            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
-            st.plotly_chart(sc_chart_2)
+
+            # sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
+            #                     x=buyer_rec_df['SC_AVG_PSF'],
+            #                     color=buyer_rec_df['INVESTOR_TYPE'],
+            #                     color_continuous_scale='Tropic')
+            #
+            # st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            # st.plotly_chart(sc_chart_2)
 
 
         elif sector == 'NNN RETAIL':
