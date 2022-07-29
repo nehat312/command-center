@@ -378,6 +378,9 @@ with st.form("PROPERTY PARAMETERS"):
             # plt.legend(loc = "best")
             # st.pyplot(fig)
 
+
+# st.plotly_chart(figure_or_data, use_container_width=False, sharing="streamlit", **kwargs)
+
 ### EXPLAIN QUALITY SCALE ###
 
 ## CREDITS / FOOTNOTES
