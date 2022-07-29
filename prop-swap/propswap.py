@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 import time
 
-# import matplotlib.pyplot as plt
-# import seaborn as sns
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # import dash as dash
 # from dash import dash_table
@@ -242,17 +242,19 @@ with st.form("PROPERTY PARAMETERS"):
             mf_chart = px.scatter(all_investor_idx,
                                   x=all_investor_idx['MF_AVG_PRICE_MM'],
                                   y=all_investor_idx['MF_AVG_PPU'],
-                                  hover_data=all_investor_idx['INVESTOR'],
+                                  # hover_data=all_investor_idx['INVESTOR'],
                                   color=all_investor_idx['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
             st.plotly_chart(mf_chart)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['MF AVG PPU'], palette = 'mako', ci = None, orient = 'h')
-            # plt.xlabel('AVG MULTIFAMILY PPU', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+            plt.figure(figsize = (30, 20))
+            fig, ax = plt.subplots()
+            sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['MF AVG PPU'], palette = 'mako', ci = None, orient = 'h')
+            plt.xlabel('AVG MULTIFAMILY PPU', fontsize = 18)
+            plt.ylabel('INVESTOR TYPE', fontsize = 18)
+            plt.legend(loc = "best")
+            st.pyplot(fig)
+
         elif sector == 'STRIP CENTER':
             per_unit_valuation = round(buyer_rec_df['SC AVG PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
