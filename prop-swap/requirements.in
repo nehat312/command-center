@@ -3,7 +3,4 @@ numpy
 matplotlib
 seaborn
 plotly
-scikit-learn
-altair
-shap
 streamlit
