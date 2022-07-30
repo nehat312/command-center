@@ -244,7 +244,7 @@ with st.form("PROPERTY PARAMETERS"):
             mf_chart_1 = px.scatter(buyer_rec_df, #all_investor_idx
                                   x=buyer_rec_df['MF_AVG_PRICE_MM'],
                                   y=buyer_rec_df['MF_AVG_PPU'],
-                                  # hover_data=all_investor_idx['INVESTOR'],
+                                  hover_data=buyer_rec_df['INVESTOR'],
                                   color=buyer_rec_df['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
 
@@ -279,7 +279,7 @@ with st.form("PROPERTY PARAMETERS"):
             sc_chart_1 = px.scatter(buyer_rec_df,  # all_investor_idx
                                     x=buyer_rec_df['SC_AVG_PRICE_MM'],
                                     y=buyer_rec_df['SC_AVG_PSF'],
-                                    # hover_data=all_investor_idx['INVESTOR'],
+                                    hover_data=buyer_rec_df['INVESTOR'],
                                     color=buyer_rec_df['INVESTOR_TYPE'],
                                     color_continuous_scale='Tropic')
 
