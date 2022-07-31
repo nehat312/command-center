@@ -1,5 +1,7 @@
 ## LIBRARY IMPORTS ##
 import streamlit as st
+import streamlit.components.v1 as components
+
 import pandas as pd
 import numpy as np
 
@@ -27,35 +29,35 @@ import plotly.express as px
 
 ## VISUAL SETTINGS ##
 
-pd.set_option('display.max_colwidth', 200)
+# pd.set_option('display.max_colwidth', 200)
 
 
 ## DATA IMPORTS ##
 
 engine_csv = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
-engine_xlsx = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
-
-## VARIABLE ASSIGNMENT
+# engine_xlsx = r'https://raw.githubusercontent.com/nehat312/command-center/main/prop-swap/data/engine.csv'
 
 all_investor_idx = pd.read_csv(engine_csv) #, header=0, index_col=0 #, encoding='utf-8'
 #all_investor_idx = pd.read_excel(INVESTORS_PATH, sheet_name='PROPSWAP', header=0) #, engine='openpyxl'
 
-all_investor_idx = all_investor_idx.sort_values(by='TTL_VOL_RANK')
 
+## VARIABLE ASSIGNMENT
+
+all_investor_idx = all_investor_idx.sort_values(by='TTL_VOL_RANK')
 
 mf_num_cols = ['MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK',]
 
 investor_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', 'C-SUITE']
-mf_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'AVG_QUALITY', 'MF_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MF_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-sc_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SC_AVG_PRICE_MM', 'SC_SF_PROP', 'SC_AVG_PSF',  'AVG_QUALITY', 'SC_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SC_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-nnn_cols = ['INVESTOR', 'INVESTOR_TYPE', 'NNN_AVG_PRICE_MM', 'NNN_SF_PROP', 'NNN_AVG_PSF',  'AVG_QUALITY', 'NNN_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'NNN_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-mall_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MALL_AVG_PRICE_MM', 'MALL_SF_PROP', 'MALL_AVG_PSF',  'AVG_QUALITY', 'MALL_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MALL_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE_MM', 'SS_SF_PROP',  'SS_AVG_PSF',  'AVG_QUALITY', 'SS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE_MM', 'IND_SF_PROP', 'IND_AVG_PSF',  'AVG_QUALITY', 'IND_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE_MM', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'AVG_QUALITY', 'FS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE_MM', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'AVG_QUALITY', 'LS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE_MM', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'AVG_QUALITY', 'CBD_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE_MM', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'AVG_QUALITY', 'SUB_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+mf_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_AVG_PPU',  'MF_QUALITY', 'MF_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE'] # AVG_QUALITY, 'TTL_VOL_RANK', 'TTL_SF_RANK',
+sc_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SC_AVG_PRICE_MM', 'SC_SF_PROP', 'SC_AVG_PSF',  'SC_QUALITY', 'SC_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+nnn_cols = ['INVESTOR', 'INVESTOR_TYPE', 'NNN_AVG_PRICE_MM', 'NNN_SF_PROP', 'NNN_AVG_PSF',  'NNN_QUALITY', 'NNN_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+mall_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MALL_AVG_PRICE_MM', 'MALL_SF_PROP', 'MALL_AVG_PSF',  'MALL_QUALITY', 'MALL_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE_MM', 'SS_SF_PROP',  'SS_AVG_PSF',  'SS_QUALITY', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE_MM', 'IND_SF_PROP', 'IND_AVG_PSF',  'IND_QUALITY', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE_MM', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'FS_QUALITY', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE_MM', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'LS_QUALITY', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE_MM', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'CBD_QUALITY', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE_MM', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'SUB_QUALITY', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
 
 # for i in mf_num_cols:
 #     pd.to_numeric(all_investor_idx[i])
@@ -64,9 +66,11 @@ sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE_MM', 'SUB_SF_PROP', 'SUB
 
 
 # #%%
-###################
 
-## STREAMLIT APP ##
+#####################
+### STREAMLIT APP ###
+#####################
+
 st.container()
 left_column, right_column = st.columns(2)
 left_button = left_column.button('PROP/SWAP')
@@ -75,12 +79,23 @@ if left_button:
     left_column.write('*ERROR: CURRENTLY UNDER MAINTENANCE*')
 if right_button:
 
-### CLEAN LINK ###
+### TABLEAU LINK ###
     #st.write('REAL ESTATE INVESTOR UNIVERSE:')
     right_column.write('https://public.tableau.com/shared/D2RKKDK8B?:display_count=n&:origin=viz_share_link')
 
 st.title('PROP/SWAP')
 st.header('*VIRTUAL CRE BROKER*')
+
+st.markdown("""
+            <style>
+            div[data-testid="stBlock"] {padding: 1em 0; border: thick double #32a1ce; color: blue}
+            </style>
+            """,
+            unsafe_allow_html=True)
+
+# style={'textAlign': 'Center', 'backgroundColor': 'rgb(223,187,133)',
+#                                            'color': 'black', 'fontWeight': 'bold', 'fontSize': '24px',
+#                                            'border': '4px solid black', 'font-family': 'Arial'}),
 
 #st.spinner()
 #with st.spinner(text='CONNECTING'):
@@ -408,3 +423,39 @@ st.success('THANKS FOR PROP/SWAPPING')
     #st.warning('NO BUYERS FOUND')
 # st.write('*~PROP/SWAP BETA MODE~*')
 st.stop()
+
+
+
+# CONFIG TEMPLATE
+    # st.set_page_config(page_title="CSS hacks", page_icon=":smirk:")
+    #
+    # c1 = st.container()
+    # st.markdown("---")
+    # c2 = st.container()
+    # with c1:
+    #     st.markdown("Hello")
+    #     st.slider("World", 0, 10, key="1")
+    # with c2:
+    #     st.markdown("Hello")
+    #     st.slider("World", 0, 10, key="2")
+
+# STYLE WITH CSS THROUGH MARKDOWN
+    # st.markdown("""
+    # <style>
+    # div[data-testid="stBlock"] {
+    #     padding: 1em 0;
+    #     border: thick double #32a1ce;
+    # }
+    # </style>
+    # """, unsafe_allow_html=True)
+
+
+# STYLE WITH JS THROUGH HTML IFRAME
+    # components.html("""
+    # <script>
+    # const elements = window.parent.document.querySelectorAll('div[data-testid="stBlock"]')
+    # console.log(elements)
+    # elements[0].style.backgroundColor = 'paleturquoise'
+    # elements[1].style.backgroundColor = 'lightgreen'
+    # </script>
+    # """, height=0, width=0)
