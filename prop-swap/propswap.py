@@ -231,7 +231,7 @@ with st.form("PROPERTY PARAMETERS"):
         st.write("RECOMMENDED INVESTOR POOL:")
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
         # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
-        buyer_rec_df.set_index(buyer_rec_df[0], inplace = True)
+        # buyer_rec_df.set_index(0, inplace = True)
 
         st.dataframe(buyer_rec_df) # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
 
