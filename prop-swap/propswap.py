@@ -83,26 +83,8 @@ if right_button:
     #st.write('REAL ESTATE INVESTOR UNIVERSE:')
     right_column.write('https://public.tableau.com/shared/D2RKKDK8B?:display_count=n&:origin=viz_share_link')
 
-st.markdown("""
-            <style>
-            div[data-testid="stBlock"] {padding: 1em 0; border: thick double #32a1ce; color: blue}
-            </style>
-            """,
-            unsafe_allow_html=True)
-
 st.title('PROP/SWAP')
 st.header('*VIRTUAL CRE BROKER*')
-
-
-
-# style={'textAlign': 'Center', 'backgroundColor': 'rgb(223,187,133)',
-#                                            'color': 'black', 'fontWeight': 'bold', 'fontSize': '24px',
-#                                            'border': '4px solid black', 'font-family': 'Arial'}),
-
-#st.spinner()
-#with st.spinner(text='CONNECTING'):
-#    time.sleep(5)
-#    st.success('LIVE')
 
 prop_params_header = st.subheader('PROPERTY PARAMETERS:')
 
@@ -461,3 +443,20 @@ st.stop()
     # elements[1].style.backgroundColor = 'lightgreen'
     # </script>
     # """, height=0, width=0)
+
+
+# st.markdown("""
+#             <style>
+#             div[data-testid="stBlock"] {padding: 1em 0; border: thick double #32a1ce; color: blue}
+#             </style>
+#             """,
+#             unsafe_allow_html=True)
+
+# style={'textAlign': 'Center', 'backgroundColor': 'rgb(223,187,133)',
+#                                            'color': 'black', 'fontWeight': 'bold', 'fontSize': '24px',
+#                                            'border': '4px solid black', 'font-family': 'Arial'}),
+
+#st.spinner()
+#with st.spinner(text='CONNECTING'):
+#    time.sleep(5)
+#    st.success('LIVE')
