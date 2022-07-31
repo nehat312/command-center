@@ -290,13 +290,13 @@ with st.form("PROPERTY PARAMETERS"):
             st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             st.plotly_chart(sc_chart_1, use_container_width=False, sharing="streamlit")
 
-            sc_chart_2 = px.parallel_categories(buyer_rec_df,
-                                                color=buyer_rec_df['INVESTOR_TYPE'],
-                                                color_continuous_scale='Tropic',) #px.colors.sequential.Inferno
-
-
-            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
-            st.plotly_chart(sc_chart_2, use_container_width=False, sharing="streamlit")
+            # sc_chart_2 = px.parallel_categories(buyer_rec_df,
+            #                                     color=buyer_rec_df['INVESTOR_TYPE'],
+            #                                     color_continuous_scale='Tropic',) #px.colors.sequential.Inferno
+            #
+            #
+            # st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            # st.plotly_chart(sc_chart_2, use_container_width=False, sharing="streamlit")
 
 
             # sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
