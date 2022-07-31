@@ -50,12 +50,12 @@ mf_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MF_AVG_PRICE_MM', 'MF_UNITS_PROP', 'MF_
 sc_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SC_AVG_PRICE_MM', 'SC_SF_PROP', 'SC_AVG_PSF',  'AVG_QUALITY', 'SC_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SC_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
 nnn_cols = ['INVESTOR', 'INVESTOR_TYPE', 'NNN_AVG_PRICE_MM', 'NNN_SF_PROP', 'NNN_AVG_PSF',  'AVG_QUALITY', 'NNN_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'NNN_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
 mall_cols = ['INVESTOR', 'INVESTOR_TYPE', 'MALL_AVG_PRICE_MM', 'MALL_SF_PROP', 'MALL_AVG_PSF',  'AVG_QUALITY', 'MALL_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'MALL_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE ($M)', 'SS_SF_PROP',  'SS_AVG_PSF',  'AVG_QUALITY', 'SS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
-ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE ($M)', 'IND_SF_PROP', 'IND_AVG_PSF',  'AVG_QUALITY', 'IND_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE ($M)', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'AVG_QUALITY', 'FS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE ($M)', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'AVG_QUALITY', 'LS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE ($M)', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'AVG_QUALITY', 'CBD_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
-sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE ($M)', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'AVG_QUALITY', 'SUB_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+ss_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SS_AVG_PRICE_MM', 'SS_SF_PROP',  'SS_AVG_PSF',  'AVG_QUALITY', 'SS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE']
+ind_cols = ['INVESTOR', 'INVESTOR_TYPE', 'IND_AVG_PRICE_MM', 'IND_SF_PROP', 'IND_AVG_PSF',  'AVG_QUALITY', 'IND_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'IND_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+fs_cols = ['INVESTOR', 'INVESTOR_TYPE', 'FS_AVG_PRICE_MM', 'FS_KEYS_PROP', 'FS_AVG_PPK',  'AVG_QUALITY', 'FS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'FS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+ls_cols = ['INVESTOR', 'INVESTOR_TYPE', 'LS_AVG_PRICE_MM', 'LS_KEYS_PROP', 'LS_AVG_PPK',  'AVG_QUALITY', 'LS_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'LS_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+cbd_cols = ['INVESTOR', 'INVESTOR_TYPE', 'CBD_AVG_PRICE_MM', 'CBD_SF_PROP', 'CBD_AVG_PSF',  'AVG_QUALITY', 'CBD_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'CBD_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
+sub_cols = ['INVESTOR', 'INVESTOR_TYPE', 'SUB_AVG_PRICE_MM', 'SUB_SF_PROP', 'SUB_AVG_PSF',  'AVG_QUALITY', 'SUB_QUALITY', 'TTL_VOL_RANK', 'TTL_SF_RANK', 'SUB_VOL_RANK', 'CITY', 'STATE', 'COUNTRY', 'MSA', 'WEBSITE', ]
 
 # for i in mf_num_cols:
 #     pd.to_numeric(all_investor_idx[i])
@@ -130,8 +130,12 @@ with st.form("PROPERTY PARAMETERS"):
     prop_qual = st.selectbox('*PROPERTY QUALITY [1-5]:',
                              list(range(1,6,1)))
 
+    # prop_cap_rate = st.selectbox('*EST. CAP RATE:',
+    #                          list(range(1, 6, 1)))
+
     if min_prop_price == 0:
         st.write('PLEASE INPUT VALUE ABOVE $0')
+
     # elif min_prop_price > 0:
     #     implied_ppu_title = st.write('*IMPLIED VALUE / UNIT:')
     #     implied_ppu = st.markdown(round(min_prop_price * 1_000_000 / prop_size))
@@ -155,7 +159,7 @@ with st.form("PROPERTY PARAMETERS"):
           sc_size_filter = all_investor_idx[all_investor_idx['SC_SF_PROP'] >= prop_size]
           sc_min_price_filter = sc_size_filter[sc_size_filter['SC_AVG_PRICE_MM'] >= min_prop_price]
           sc_qual_filter = sc_min_price_filter[(sc_min_price_filter['SC_QUALITY'] >= (prop_qual-1)) & (sc_min_price_filter['SC_QUALITY'] <= (prop_qual+1))]
-          sc_buyer_recs = sc_qual_filter.sort_values(by = 'SC_VOL_RANK', ascending = True)[:20]
+          sc_buyer_recs = sc_qual_filter.sort_values(by = 'SC_VOL_RANK', ascending = True)[:25]
           sc_buyer_recs = pd.DataFrame(data = sc_buyer_recs, columns = sc_cols)
         return sc_buyer_recs
       elif sector == 'NNN RETAIL':
@@ -163,7 +167,7 @@ with st.form("PROPERTY PARAMETERS"):
           nnn_size_filter = all_investor_idx[all_investor_idx['NNN_SF_PROP'] >= prop_size]
           nnn_min_price_filter = nnn_size_filter[nnn_size_filter['NNN_AVG_PRICE_MM'] >= min_prop_price]
           nnn_qual_filter = nnn_min_price_filter[(nnn_min_price_filter['NNN_QUALITY'] >= (prop_qual-1)) & (nnn_min_price_filter['NNN_QUALITY'] <= (prop_qual+1))]
-          nnn_buyer_recs = nnn_qual_filter.sort_values(by = 'NNN_VOL_RANK', ascending = True)[:50]
+          nnn_buyer_recs = nnn_qual_filter.sort_values(by = 'NNN_VOL_RANK', ascending = True)[:25]
           nnn_buyer_recs = pd.DataFrame(data = nnn_buyer_recs, columns = nnn_cols)
         return nnn_buyer_recs
       elif sector == 'MALL':
@@ -171,7 +175,7 @@ with st.form("PROPERTY PARAMETERS"):
           mall_size_filter = all_investor_idx[all_investor_idx['MALL_SF_PROP'] >= prop_size]
           mall_min_price_filter = mall_size_filter[mall_size_filter['MALL_AVG_PRICE_MM'] >= min_prop_price]
           mall_qual_filter = mall_min_price_filter[(mall_min_price_filter['MALL_QUALITY'] >= (prop_qual-2)) & (mall_min_price_filter['MALL_QUALITY'] <= (prop_qual+2))]
-          mall_buyer_recs = mall_qual_filter.sort_values(by = 'MALL_VOL_RANK', ascending = False)[:12]
+          mall_buyer_recs = mall_qual_filter.sort_values(by = 'MALL_VOL_RANK', ascending = False)[:10]
           mall_buyer_recs = pd.DataFrame(data = mall_buyer_recs, columns = mall_cols)
         return mall_buyer_recs
       elif sector == 'SELF-STORAGE':
@@ -179,7 +183,7 @@ with st.form("PROPERTY PARAMETERS"):
           ss_size_filter = all_investor_idx[all_investor_idx['SS_SF_PROP'] >= prop_size]
           ss_min_price_filter = ss_size_filter[ss_size_filter['SS_AVG_PRICE_MM'] >= min_prop_price]
           ss_qual_filter = ss_min_price_filter[(ss_min_price_filter['SS_QUALITY'] >= (prop_qual-1)) & (ss_min_price_filter['SS_QUALITY'] <= (prop_qual+1))]
-          ss_buyer_recs = ss_qual_filter.sort_values(by = 'SS_VOL_RANK', ascending = True)[:50]
+          ss_buyer_recs = ss_qual_filter.sort_values(by = 'SS_VOL_RANK', ascending = True)[:25]
           ss_buyer_recs = pd.DataFrame(data = ss_buyer_recs, columns = ss_cols)
         return ss_buyer_recs
       elif sector == 'INDUSTRIAL':
@@ -187,7 +191,7 @@ with st.form("PROPERTY PARAMETERS"):
           ind_size_filter = all_investor_idx[all_investor_idx['IND_SF_PROP'] >= prop_size]
           ind_min_price_filter = ind_size_filter[ind_size_filter['IND_AVG_PRICE_MM'] >= min_prop_price]
           ind_qual_filter = ind_min_price_filter[(ind_min_price_filter['IND_QUALITY'] >= (prop_qual-1)) & (ind_min_price_filter['IND_QUALITY'] <= (prop_qual+1))]
-          ind_buyer_recs = ind_qual_filter.sort_values(by = 'IND_VOL_RANK', ascending = True)[:50]
+          ind_buyer_recs = ind_qual_filter.sort_values(by = 'IND_VOL_RANK', ascending = True)[:25]
           ind_buyer_recs = pd.DataFrame(data = ind_buyer_recs, columns = ind_cols)
         return ind_buyer_recs
       elif sector == 'FULL-SERVICE HOTEL':
@@ -195,7 +199,7 @@ with st.form("PROPERTY PARAMETERS"):
           fs_size_filter = all_investor_idx[all_investor_idx['FS_KEYS_PROP'] >= prop_size]
           fs_min_price_filter = fs_size_filter[fs_size_filter['FS_AVG_PRICE_MM'] >= min_prop_price]
           fs_qual_filter = fs_min_price_filter[(fs_min_price_filter['FS_QUALITY'] >= (prop_qual-1)) & (fs_min_price_filter['FS_QUALITY'] <= (prop_qual+1))]
-          fs_buyer_recs = fs_qual_filter.sort_values(by = 'FS_VOL_RANK', ascending = True)[:50]
+          fs_buyer_recs = fs_qual_filter.sort_values(by = 'FS_VOL_RANK', ascending = True)[:25]
           fs_buyer_recs = pd.DataFrame(data = fs_buyer_recs, columns = fs_cols)
         return fs_buyer_recs
       elif sector == 'LIMITED-SERVICE HOTEL':
@@ -203,7 +207,7 @@ with st.form("PROPERTY PARAMETERS"):
           ls_size_filter = all_investor_idx[all_investor_idx['LS_KEYS_PROP'] >= prop_size]
           ls_min_price_filter = ls_size_filter[ls_size_filter['LS_AVG_PRICE_MM'] >= min_prop_price]
           ls_qual_filter = ls_min_price_filter[(ls_min_price_filter['LS_QUALITY'] >= (prop_qual-1)) & (ls_min_price_filter['LS_QUALITY'] <= (prop_qual+1))]
-          ls_buyer_recs = ls_qual_filter.sort_values(by = 'LS_VOL_RANK', ascending = True)[:50]
+          ls_buyer_recs = ls_qual_filter.sort_values(by = 'LS_VOL_RANK', ascending = True)[:25]
           ls_buyer_recs = pd.DataFrame(data = ls_buyer_recs, columns = ls_cols)
         return ls_buyer_recs
       elif sector == 'CBD OFFICE':
@@ -211,7 +215,7 @@ with st.form("PROPERTY PARAMETERS"):
           cbd_size_filter = all_investor_idx[all_investor_idx['CBD_SF_PROP'] >= prop_size]
           cbd_min_price_filter = cbd_size_filter[cbd_size_filter['CBD_AVG_PRICE_MM'] >= min_prop_price]
           cbd_qual_filter = cbd_min_price_filter[(cbd_min_price_filter['CBD_QUALITY'] >= (prop_qual-1)) & (cbd_min_price_filter['CBD_QUALITY'] <= (prop_qual+1))]
-          cbd_buyer_recs = cbd_qual_filter.sort_values(by = 'CBD_VOL_RANK', ascending = True)[:50]
+          cbd_buyer_recs = cbd_qual_filter.sort_values(by = 'CBD_VOL_RANK', ascending = True)[:25]
           cbd_buyer_recs = pd.DataFrame(data = cbd_buyer_recs, columns = cbd_cols)
         return cbd_buyer_recs
       elif sector == 'SUB OFFICE':
@@ -219,7 +223,7 @@ with st.form("PROPERTY PARAMETERS"):
           sub_size_filter = all_investor_idx[all_investor_idx['SUB_SF_PROP'] >= prop_size]
           sub_min_price_filter = sub_size_filter[sub_size_filter['SUB_AVG_PRICE_MM'] >= min_prop_price]
           sub_qual_filter = sub_min_price_filter[(sub_min_price_filter['SUB_QUALITY'] >= (prop_qual-1)) & (sub_min_price_filter['SUB_QUALITY'] <= (prop_qual+1))]
-          sub_buyer_recs = sub_qual_filter.sort_values(by = 'SUB_VOL_RANK', ascending = True)[:50]
+          sub_buyer_recs = sub_qual_filter.sort_values(by = 'SUB_VOL_RANK', ascending = True)[:25]
           sub_buyer_recs = pd.DataFrame(data = sub_buyer_recs, columns = sub_cols)
         return sub_buyer_recs
 
@@ -228,10 +232,9 @@ with st.form("PROPERTY PARAMETERS"):
         st.write("RECOMMENDED INVESTOR POOL:")
         buyer_rec_df = filter_buyers(sector, prop_size, min_prop_price, prop_qual)
         # buyer_rec_df = buyer_rec_df.set_index('INVESTOR')
-        # buyer_rec_df.set_index('INVESTOR', inplace = True)
+        buyer_rec_df.set_index('INVESTOR', inplace = True)
 
-        st.dataframe(buyer_rec_df)
-            # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
+        st.dataframe(buyer_rec_df) # st.dataframe(buyer_rec_df.style.highlight_max(axis=0))
 
         if sector == 'MULTIFAMILY':
             per_unit_valuation = round(buyer_rec_df['MF_AVG_PPU'].mean())
@@ -244,7 +247,7 @@ with st.form("PROPERTY PARAMETERS"):
             mf_chart_1 = px.scatter(buyer_rec_df, #all_investor_idx
                                   x=buyer_rec_df['MF_AVG_PRICE_MM'],
                                   y=buyer_rec_df['MF_AVG_PPU'],
-                                  hover_data=buyer_rec_df['INVESTOR'],
+                                  # hover_data=buyer_rec_df['INVESTOR'],
                                   color=buyer_rec_df['INVESTOR_TYPE'],
                                   color_continuous_scale='Tropic')
 
@@ -279,18 +282,44 @@ with st.form("PROPERTY PARAMETERS"):
             sc_chart_1 = px.scatter(buyer_rec_df,  # all_investor_idx
                                     x=buyer_rec_df['SC_AVG_PRICE_MM'],
                                     y=buyer_rec_df['SC_AVG_PSF'],
-                                    hover_data=buyer_rec_df['INVESTOR'],
+                                    # hover_data=buyer_rec_df['INVESTOR'],
                                     color=buyer_rec_df['INVESTOR_TYPE'],
+                                    size=buyer_rec_df['INVESTOR_TYPE'],
                                     color_continuous_scale='Tropic')
 
             st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             st.plotly_chart(sc_chart_1, use_container_width=False, sharing="streamlit")
 
+            sc_chart_2 = px.parallel_categories(buyer_rec_df,
+                                                color=buyer_rec_df['INVESTOR_TYPE'],
+                                                color_continuous_scale='Tropic',) #px.colors.sequential.Inferno
+
+
+            st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
+            st.plotly_chart(sc_chart_2, use_container_width=False, sharing="streamlit")
+
+
             # sc_chart_2 = px.bar(y=buyer_rec_df['INVESTOR_TYPE'],
             #                     x=buyer_rec_df['SC_AVG_PSF'],
             #                     color=buyer_rec_df['INVESTOR_TYPE'],
             #                     color_continuous_scale='Tropic')
-            #
+
+                # barmode = "group"
+                #pattern_shape = "nation", pattern_shape_sequence = [".", "x", "+"]
+
+            # fig = px.bar(df, x="sex", y="total_bill", color="smoker", barmode="group", facet_row="time", facet_col="day",
+            #        category_orders={"day": ["Thur", "Fri", "Sat", "Sun"], "time": ["Lunch", "Dinner"]})
+
+            # fig = px.scatter_matrix(df, dimensions=["sepal_width", "sepal_length", "petal_width", "petal_length"],
+            #                         color="species")
+
+            # fig = px.parallel_categories(df, color="size", color_continuous_scale=px.colors.sequential.Inferno)
+
+            # fig = px.parallel_coordinates(df, color="species_id", labels={"species_id": "Species",
+            #                   "sepal_width": "Sepal Width", "sepal_length": "Sepal Length",
+            #                   "petal_width": "Petal Width", "petal_length": "Petal Length", },
+            #                     color_continuous_scale=px.colors.diverging.Tealrose, color_continuous_midpoint=2)
+
             # st.write('TARGETED INVESTOR POOL -- VALUATION RANGE')
             # st.plotly_chart(sc_chart_2)
 
@@ -302,14 +331,8 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.boxplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['NNN AVG PSF'], palette = 'mako', orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG NNN RETAIL PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
         elif sector == 'MALL':
             per_unit_valuation = round(buyer_rec_df['MALL_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -317,14 +340,8 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['MALL AVG PSF'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG MALL PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
         elif sector == 'SELF-STORAGE':
             per_unit_valuation = round(buyer_rec_df['SS_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -332,14 +349,9 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['SS AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG SELF-STORAGE PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
+
         elif sector == 'INDUSTRIAL':
             per_unit_valuation = round(buyer_rec_df['IND_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -347,14 +359,8 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['IND AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG INDUSTRIAL PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
         elif sector == 'FULL-SERVICE HOTEL':
             per_unit_valuation = round(buyer_rec_df['FS_AVG_PPK'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -362,14 +368,8 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE / KEY:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['FS AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG FS HOTEL PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
         elif sector == 'LIMITED-SERVICE HOTEL':
             per_unit_valuation = round(buyer_rec_df['LS_AVG_PPK'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -377,14 +377,9 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE / KEY:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['LS AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG LS HOTEL PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
+
         elif sector == 'CBD OFFICE':
             per_unit_valuation = round(buyer_rec_df['CBD_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -392,14 +387,8 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['CBD AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVERAGE RETAIL PRICE PSF', fontsize = 24)
-            # plt.xlabel('AVG CBD OFFICE PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
+
+
         elif sector == 'SUB OFFICE':
             per_unit_valuation = round(buyer_rec_df['SUB_AVG_PSF'].mean())
             prop_valuation = per_unit_valuation * prop_size
@@ -407,21 +396,6 @@ with st.form("PROPERTY PARAMETERS"):
             st.write(prop_valuation / 1_000_000)
             st.write("ESTIMATED VALUE PSF:")
             st.write(per_unit_valuation)
-            # plt.figure(figsize = (30, 20))
-            # fig, ax = plt.subplots()
-            # sns.barplot(y = buyer_rec_df['INVESTOR TYPE'], x = buyer_rec_df['SUB AVG PRICE ($M)'], palette = 'mako', ci = None, orient = 'h')
-            # #plt.title('AVG SUB OFFICE PRICE', fontsize = 24)
-            # plt.xlabel('AVG SUB OFFICE PRICE ($MM)', fontsize = 18)
-            # plt.ylabel('INVESTOR TYPE', fontsize = 18)
-            # plt.legend(loc = "best")
-            # st.pyplot(fig)
-
-
-
-
-# st.plotly_chart(figure_or_data, use_container_width=False, sharing="streamlit", **kwargs)
-
-# efg_win = px.scatter(rollup_df, x=rollup_df['EFG%'], y=rollup_df['WIN%'], hover_data=['TEAM'], color=rollup_df['CONF'], color_continuous_scale='Tropic')
 
 
 # style={'textAlign': 'Center', 'border': '4px solid black', 'font-family': 'Arial'}
